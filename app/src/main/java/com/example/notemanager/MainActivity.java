@@ -3,6 +3,7 @@ package com.example.notemanager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,6 +21,8 @@ import com.example.notemanager.Adapters.NoteRecyclerViewAdapter;
 import com.example.notemanager.Entities.Note;
 import com.example.notemanager.ViewModel.NoteViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -46,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         noteViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication()))
                 .get(NoteViewModel.class);
-        noteViewModel.getAllNotes().observe(this, mNoteAdapter::setNotes);
+        noteViewModel.getAllNotes().observe(this, notes -> mNoteAdapter.submitList(notes));
 
         addNoteFab.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AddEditNoteActivity.class);
