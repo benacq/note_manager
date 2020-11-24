@@ -9,17 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.notemanager.Entities.Note;
 import com.example.notemanager.R;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class NoteRecyclerViewAdapter extends ListAdapter<Note, NoteRecyclerViewAdapter.NoteViewHolder> {
-    //    private List<Note> mNotes = new ArrayList<>();
     private OnItemClickListener listener;
-
     public NoteRecyclerViewAdapter() {
         super(DIFF_CALLBACK);
     }
