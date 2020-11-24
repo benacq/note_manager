@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">NoteManager</string>
+    <string name="add_new_note_content_desc">Add new note</string>
+    <string name="btn_save_note">Save</string>
+    <string name="priority_text">Priority</string>
+    <string name="delete_all_notes">Delete all Notes</string>
+    <string name="title_edit_text_hint">Title</string>
+    <string name="description_edit_text_hint">Description</string>
+</resources>

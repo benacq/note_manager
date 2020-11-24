@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/add_note_constraint_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="20sp"
+    tools:context=".AddEditNoteActivity">
+
+    <EditText
+        android:id="@+id/note_title_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="@string/title_edit_text_hint"
+        android:drawablePadding="5dp"
+        android:drawableStart="@drawable/ic_text_format"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:drawableLeft="@drawable/ic_text_format"
+        android:autofillHints="Note title" />
+
+
+    <EditText
+        android:id="@+id/note_description_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints="Note title"
+        android:drawableStart="@drawable/ic_edit"
+        android:drawableLeft="@drawable/ic_edit"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/description_edit_text_hint"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/note_title_edit_text" />
+
+
+    <TextView
+        android:id="@+id/priority_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/priority_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/note_description_edit_text" />
+
+
+    <RadioGroup
+        android:id="@+id/priorityRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/priority_textView">
+
+        <RadioButton
+            android:id="@+id/radio_least_important"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:onClick="checkButton"
+            android:text="least important"/>
+
+        <RadioButton
+            android:id="@+id/radio_important"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="checkButton"
+            android:text="important" />
+
+        <RadioButton
+            android:id="@+id/radio_very_important"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="checkButton"
+            android:text="very important" />
+
+
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
