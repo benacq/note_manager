@@ -97,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
             noteViewModel.deleteAllNotes();
             Toast.makeText(this, "All notes deleted", Toast.LENGTH_LONG).show();
             return true;
+        }else if (item.getItemId() == R.id.settings){
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
