@@ -20,16 +20,15 @@
     <PreferenceCategory app:title="@string/sync_header">
 
         <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
+            app:key="system_display_mode"
+            app:summary="Use current system theme"
+            app:title="@string/system_display_mode" />
 
         <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
+            app:defaultValue="false"
+            app:key="night_mode"
+            app:title="@string/sync_title" />
+
 
     </PreferenceCategory>
-
 </PreferenceScreen>

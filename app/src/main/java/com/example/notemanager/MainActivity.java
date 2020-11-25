@@ -34,6 +34,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        boolean nightModeState = SettingsPreferenceManager.getPrefBool("night_mode", this);
+        boolean isSystemDarkEnabled = SettingsPreferenceManager.getPrefBool("system_display_mode", this);
+
+        if (isSystemDarkEnabled) {
+            SettingsPreferenceManager.useDeviceTheme(true);
+        } else {
+            SettingsPreferenceManager.toggleNightMode(nightModeState);
+        }
+
 
         FloatingActionButton addNoteFab = findViewById(R.id.btn_add_note_fab);
         recyclerView = findViewById(R.id.note_recycler_view);
@@ -42,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
 
         mNoteAdapter = new NoteRecyclerViewAdapter();
         recyclerView.setAdapter(mNoteAdapter);
+        //    String systemDefault = SettingsPreferenceManager.getPrefBool("system_display_mode", getContext()).toString();
+        //    String nightModeEnabled = SettingsPreferenceManager.getPrefBool("night_mode", getContext()).toString();
+
 
         noteViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication()))
                 .get(NoteViewModel.class);
@@ -97,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
             noteViewModel.deleteAllNotes();
             Toast.makeText(this, "All notes deleted", Toast.LENGTH_LONG).show();
             return true;
-        }else if (item.getItemId() == R.id.settings){
+        } else if (item.getItemId() == R.id.settings) {
             Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
             startActivity(intent);
         }

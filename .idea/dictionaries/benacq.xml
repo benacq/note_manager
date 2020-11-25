@@ -2,6 +2,7 @@
   <dictionary name="benacq">
     <words>
       <w>notemanager</w>
+      <w>oncreate</w>
     </words>
   </dictionary>
 </component>
